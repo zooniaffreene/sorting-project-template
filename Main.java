@@ -2,18 +2,24 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        // Generate a random array
-        int[] testInput = generateRandomArray(10, 0, 100);
+        int[] randomArray = generateRandomArray(10, 1, 100);
 
-        TestSuite.run(testInput, 10000);
+        System.out.println("Randomly generated array: ");
+        for (int num : randomArray) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        TestSuite.run(randomArray, 10000); 
     }
 
-    public static int[] generateRandomArray(int size, int minValue, int maxValue) {
+
+    public static int[] generateRandomArray(int size, int min, int max) {
         Random random = new Random();
         int[] array = new int[size];
 
         for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(maxValue - minValue + 1) + minValue;
+            array[i] = random.nextInt(max - min + 1) + min; 
         }
 
         return array;
