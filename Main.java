@@ -2,26 +2,20 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int[] randomArray = generateRandomArray(10, 1, 100);
+        int[] testInput = generateRandomArray(10);
 
-        System.out.println("Randomly generated array: ");
-        for (int num : randomArray) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
-
-        TestSuite.run(randomArray, 10000); 
+        TestSuite.run(testInput, 1);
     }
 
-
-    public static int[] generateRandomArray(int size, int min, int max) {
+    public static int[] generateRandomArray(int size) {
         Random random = new Random();
         int[] array = new int[size];
 
         for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(max - min + 1) + min; 
+            array[i] = random.nextInt(100); 
         }
 
         return array;
     }
 }
+
